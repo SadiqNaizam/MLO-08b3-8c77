@@ -52,6 +52,10 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--success-foreground))'
+        },
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -64,10 +68,17 @@ export default {
 				}
 			},
 			borderRadius: {
+        // Preserved Shadcn structure. PRD's "rounded-md" as default class name
+        // will use `calc(var(--radius) - 2px)` which is Tailwind's default md (0.375rem if --radius is 0.5rem).
+        // If PRD implied "rounded-md" should BE 0.5rem, then md should be var(--radius).
+        // Current setup: lg is 0.5rem (var(--radius)), md is 0.375rem.
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
